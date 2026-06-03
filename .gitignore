@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv/
+venv/
+ENV/
+env/
+
+# Logs
+logs/
+*.log
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Python packaging
+*.egg-info/
+dist/
+build/
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.dylib
+*.pyd
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
