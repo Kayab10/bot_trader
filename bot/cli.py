@@ -1,7 +1,13 @@
 ﻿# bot/cli.py
 import argparse
 
+
 def parse_args():
+    """Parse command-line arguments for the trading bot.
+
+    Returns:
+        argparse.Namespace: Parsed arguments containing symbol, side, type, quantity, and price.
+    """
     parser = argparse.ArgumentParser(description="Binance Futures order bot")
     parser.add_argument("--symbol", required=True, help="Trading symbol, e.g. BTCUSDT")
     parser.add_argument("--side", required=True, type=str.upper, choices=["BUY", "SELL"], help="Order side")

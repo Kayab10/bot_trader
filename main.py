@@ -1,4 +1,10 @@
-﻿# main.py
+﻿"""Entry point for the Binance Futures trading bot.
+
+This module parses command-line arguments, validates input values, places
+orders through the Binance client, and prints formatted success/failure
+output to the console.
+"""
+
 import requests
 
 from binance.exceptions import BinanceAPIException
@@ -16,6 +22,7 @@ from bot.validators import (
 
 
 def format_success(symbol, side, order_type, quantity, response):
+    """Print a formatted summary for a successful order."""
     output = [
         "=" * 20,
         "",
@@ -39,6 +46,7 @@ def format_success(symbol, side, order_type, quantity, response):
 
 
 def format_failure(reason):
+    """Print a formatted error message when an order fails."""
     output = [
         "ORDER FAILED",
         "",
@@ -49,6 +57,7 @@ def format_failure(reason):
 
 
 def main():
+    """Run the trading bot from the command line."""
     logger = setup_logger()
 
     try:
@@ -61,6 +70,7 @@ def main():
 
         client = BinanceClient()
 
+        # Log the order request before execution.
         logger.info(
             "ORDER REQUEST\nSymbol: %s\nSide: %s\nType: %s\nQuantity: %s\nPrice: %s",
             symbol,

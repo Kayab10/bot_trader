@@ -4,15 +4,25 @@ from pathlib import Path
 
 
 class OrderTypeFilter(logging.Filter):
+    """Filter log records by the order type contained in the message."""
+
     def __init__(self, order_type):
         super().__init__()
         self.order_type = order_type
 
     def filter(self, record):
+        """Return True when the record message matches the configured order type."""
         return self.order_type in record.getMessage()
 
 
 def setup_logger():
+    """Configure and return a logger for trading bot order events.
+
+    The logger writes market and limit orders into separate files under `logs/`.
+
+    Returns:
+        logging.Logger: Configured logger instance.
+    """
     logger = logging.getLogger("trading_bot")
     if logger.handlers:
         return logger
